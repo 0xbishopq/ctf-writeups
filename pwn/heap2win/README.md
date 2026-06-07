@@ -1,4 +1,4 @@
-<img width="1547" height="706" alt="image" src="https://github.com/user-attachments/assets/09fc1da3-143a-475c-905f-de13d75644d3" /># heap2win — GYUCTF 2026
+# heap2win — GYUCTF 2026
 
 **Category:** Pwn
 
