@@ -1,15 +1,16 @@
-# heap2win — GYUCTF 2026
+# heap2win — BYUCTF 2026
 
 **Category:** Pwn
 
 **Source:** you can download the files from **https://github.com/sajjadium/ctf-archives/tree/main/ctfs/BYUCTF/2026/pwn/heap2win**
 
 
-**Description:** the idea of the challenge is to overwrite vtable of an object with anthor vtable 
+**Description:** the idea of the challenge is to  overwrite CustomButton's vtable pointer with 
+WinnerButton's vtable to hijack virtual dispatch
 
-**Tools Used** : gdb-gef , ghidra , pwntools  , c++flit
+**Tools Used** : gdb-gef , ghidra , pwntools  , c++filt
 
-**the following will be detailed wrietup for the challenge from checksec command to full dynamic analysis**
+**the following will be detailed writeup for the challenge from checksec command to full dynamic analysis**
 ****
 
 ## **static analysis**
@@ -80,13 +81,13 @@ this is location of our data we provided (AAA...) and if we examine our data - 8
 ****
 
 
-## **exploit senario**
+## **Exploit scenario**
 
 after several attempts to expand topchunk and to do multiple button , notice that when : 
 
 1) creating HypeButton
 2) Creating CustomButton#1 (AAAAAA...)
-3) Creating CustomeButton#2 (BBBBB....)
+3) Creating CustomButton#2 (BBBBB....)
 
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/e3efff1d-139d-46ed-9da6-368c43b6f5a3" />
 
@@ -101,7 +102,7 @@ and we have the shell : )
 
 ****
 
-Thanks for reading ,
+**Thanks for reading** ,
 
 **0xbishop from Rooted Minds Team** 
 
