@@ -7,7 +7,7 @@
 
 **Description:** the idea of the challenge is to overwrite vtable of an object with anthor vtable 
 
-**Tools Used** : gdb-gef , ghidra , pwntools 
+**Tools Used** : gdb-gef , ghidra , pwntools  , c++flit
 
 **the following will be detailed wrietup for the challenge from checksec command to full dynamic analysis**
 ****
@@ -82,10 +82,28 @@ this is location of our data we provided (AAA...) and if we examine our data - 8
 
 ## **exploit senario**
 
+after several attempts to expand topchunk and to do multiple button , notice that when : 
+
+1) creating HypeButton
+2) Creating CustomButton#1 (AAAAAA...)
+3) Creating CustomeButton#2 (BBBBB....)
+
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/e3efff1d-139d-46ed-9da6-368c43b6f5a3" />
 
 
+notice that , **CustomButton#2** is locating before **CustomButton#1** so we can overflow it  from (0x4198b8) 24 bytes + address_of_winner_class_vtable 
 
-so we need to expand top chunk , and we can do that by creating **HypeButton** first
+then we choose to push **CustomButton#1** to call address_of_winner_class_vtable
+
+and we have the shell : ) 
+
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/9a6289e2-3953-41c1-937a-0aa43b282dca" />
+
+****
+
+Thanks for reading ,
+
+**0xbishop from Rooted Minds Team** 
 
 
 
