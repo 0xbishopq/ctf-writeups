@@ -1,4 +1,4 @@
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/fb1fdc7c-87e5-4525-a986-6dff07fa0646" /># heap2win — GYUCTF 2026
+# heap2win — GYUCTF 2026
 
 **Category:** Pwn
 
@@ -43,7 +43,7 @@ good note to make use of during debugging : can reach name variable in heap by e
 
 ****
 
-##**Dynamic analysis:**
+## **Dynamic analysis:**
 
 after running it normally and try to fuzz the **customButton** variable , it crashes  but not cause of corrupting vtable value , but cause we corrupted the top chunk 
 
@@ -80,7 +80,7 @@ this is location of our data we provided (AAA...) and if we examine our data - 8
 ****
 
 
-##**exploit senario**
+## **exploit senario**
 
 
 
