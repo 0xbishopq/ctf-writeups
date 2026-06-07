@@ -104,7 +104,7 @@ and we have the shell : )
 
 **Thanks for reading** ,
 
-**0xbishop from Rooted Minds Team** 
+**bishop from Rooted Minds Team** 
 
 
 
