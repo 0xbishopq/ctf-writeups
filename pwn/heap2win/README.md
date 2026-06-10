@@ -1,4 +1,4 @@
-# heap2win — BYUCTF 2026
+# heap2win Writeup  — BYUCTF 2026
 
 **Category:** Pwn
 
