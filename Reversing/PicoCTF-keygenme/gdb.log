@@ -1,0 +1,299 @@
++set disassembly-flavor intel 
++b __libc_start_main
+❌️ Function "__libc_start_main" not defined.
+Breakpoint 1 (__libc_start_main) pending.
++r
+Starting program: /home/bishop/Desktop/keygenme/keygenme 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, __libc_start_main_impl (main=0x55555555548b, argc=1, argv=0x7fffffffdd58, init=0x555555555520, fini=0x555555555590, rtld_fini=0x7ffff7fc6480 <_dl_fini>, stack_end=0x7fffffffdd48) at ../csu/libc-start.c:242
+⚠️ warning: 242	../csu/libc-start.c: No such file or directory
++b *0x55555555548b
+Breakpoint 2 at 0x55555555548b
++c
+Continuing.
+
+Breakpoint 2, 0x000055555555548b in ?? ()
++x/10i $pc
+=> 0x55555555548b:	endbr64
+   0x55555555548f:	push   rbp
+   0x555555555490:	mov    rbp,rsp
+   0x555555555493:	sub    rsp,0x40
+   0x555555555497:	mov    DWORD PTR [rbp-0x34],edi
+   0x55555555549a:	mov    QWORD PTR [rbp-0x40],rsi
+   0x55555555549e:	mov    rax,QWORD PTR fs:0x28
+   0x5555555554a7:	mov    QWORD PTR [rbp-0x8],rax
+   0x5555555554ab:	xor    eax,eax
+   0x5555555554ad:	lea    rdi,[rip+0xb55]        # 0x555555556009
++x
+   0x5555555554b4:	mov    eax,0x0
+   0x5555555554b9:	call   0x5555555550b0 <printf@plt>
+   0x5555555554be:	mov    rdx,QWORD PTR [rip+0x2b4b]        # 0x555555558010 <stdin>
+   0x5555555554c5:	lea    rax,[rbp-0x30]
+   0x5555555554c9:	mov    esi,0x25
+   0x5555555554ce:	mov    rdi,rax
+   0x5555555554d1:	call   0x5555555550d0 <fgets@plt>
+   0x5555555554d6:	lea    rax,[rbp-0x30]
+   0x5555555554da:	mov    rdi,rax
+   0x5555555554dd:	call   0x555555555209
++x/s 0x555555556009
+0x555555556009:	"Enter your license key: "
++b *0x5555555554dd
+Breakpoint 3 at 0x5555555554dd
++c
+Continuing.
+
+Breakpoint 3, 0x00005555555554dd in ?? ()
++si
+0x0000555555555209 in ?? ()
++x/10i $pc
+=> 0x555555555209:	endbr64
+   0x55555555520d:	push   rbp
+   0x55555555520e:	mov    rbp,rsp
+   0x555555555211:	sub    rsp,0xe0
+   0x555555555218:	mov    QWORD PTR [rbp-0xd8],rdi
+   0x55555555521f:	mov    rax,QWORD PTR fs:0x28
+   0x555555555228:	mov    QWORD PTR [rbp-0x8],rax
+   0x55555555522c:	xor    eax,eax
+   0x55555555522e:	movabs rax,0x7b4654436f636970
+   0x555555555238:	movabs rdx,0x30795f676e317262
++x
+   0x555555555242:	mov    QWORD PTR [rbp-0x90],rax
+   0x555555555249:	mov    QWORD PTR [rbp-0x88],rdx
+   0x555555555250:	movabs rax,0x6b5f6e77305f7275
+   0x55555555525a:	mov    QWORD PTR [rbp-0x80],rax
+   0x55555555525e:	mov    DWORD PTR [rbp-0x78],0x5f7933
+   0x555555555265:	mov    WORD PTR [rbp-0xb2],0x7d
+   0x55555555526e:	lea    rax,[rbp-0x90]
+   0x555555555275:	mov    rdi,rax
+   0x555555555278:	call   0x5555555550e0 <strlen@plt>
+   0x55555555527d:	mov    rcx,rax
++x
+   0x555555555280:	lea    rdx,[rbp-0xb0]
+   0x555555555287:	lea    rax,[rbp-0x90]
+   0x55555555528e:	mov    rsi,rcx
+   0x555555555291:	mov    rdi,rax
+   0x555555555294:	call   0x5555555550f0 <MD5@plt>
+   0x555555555299:	lea    rax,[rbp-0xb2]
+   0x5555555552a0:	mov    rdi,rax
+   0x5555555552a3:	call   0x5555555550e0 <strlen@plt>
+   0x5555555552a8:	mov    rcx,rax
+   0x5555555552ab:	lea    rdx,[rbp-0xa0]
++x
+   0x5555555552b2:	lea    rax,[rbp-0xb2]
+   0x5555555552b9:	mov    rsi,rcx
+   0x5555555552bc:	mov    rdi,rax
+   0x5555555552bf:	call   0x5555555550f0 <MD5@plt>
+   0x5555555552c4:	mov    DWORD PTR [rbp-0xc8],0x0
+   0x5555555552ce:	mov    DWORD PTR [rbp-0xc4],0x0
+   0x5555555552d8:	jmp    0x555555555321
+   0x5555555552da:	mov    eax,DWORD PTR [rbp-0xc4]
+   0x5555555552e0:	cdqe
+   0x5555555552e2:	movzx  eax,BYTE PTR [rbp+rax*1-0xb0]
++x
+   0x5555555552ea:	movzx  eax,al
+   0x5555555552ed:	lea    rcx,[rbp-0x70]
+   0x5555555552f1:	mov    edx,DWORD PTR [rbp-0xc8]
+   0x5555555552f7:	movsxd rdx,edx
+   0x5555555552fa:	add    rcx,rdx
+   0x5555555552fd:	mov    edx,eax
+   0x5555555552ff:	lea    rsi,[rip+0xcfe]        # 0x555555556004
+   0x555555555306:	mov    rdi,rcx
+   0x555555555309:	mov    eax,0x0
+   0x55555555530e:	call   0x555555555100 <sprintf@plt>
++x
+   0x555555555313:	add    DWORD PTR [rbp-0xc4],0x1
+   0x55555555531a:	add    DWORD PTR [rbp-0xc8],0x2
+   0x555555555321:	cmp    DWORD PTR [rbp-0xc4],0xf
+   0x555555555328:	jle    0x5555555552da
+   0x55555555532a:	mov    DWORD PTR [rbp-0xc8],0x0
+   0x555555555334:	mov    DWORD PTR [rbp-0xc0],0x0
+   0x55555555533e:	jmp    0x555555555387
+   0x555555555340:	mov    eax,DWORD PTR [rbp-0xc0]
+   0x555555555346:	cdqe
+   0x555555555348:	movzx  eax,BYTE PTR [rbp+rax*1-0xa0]
++x
+   0x555555555350:	movzx  eax,al
+   0x555555555353:	lea    rcx,[rbp-0x50]
+   0x555555555357:	mov    edx,DWORD PTR [rbp-0xc8]
+   0x55555555535d:	movsxd rdx,edx
+   0x555555555360:	add    rcx,rdx
+   0x555555555363:	mov    edx,eax
+   0x555555555365:	lea    rsi,[rip+0xc98]        # 0x555555556004
+   0x55555555536c:	mov    rdi,rcx
+   0x55555555536f:	mov    eax,0x0
+   0x555555555374:	call   0x555555555100 <sprintf@plt>
++x
+   0x555555555379:	add    DWORD PTR [rbp-0xc0],0x1
+   0x555555555380:	add    DWORD PTR [rbp-0xc8],0x2
+   0x555555555387:	cmp    DWORD PTR [rbp-0xc0],0xf
+   0x55555555538e:	jle    0x555555555340
+   0x555555555390:	mov    DWORD PTR [rbp-0xbc],0x0
+   0x55555555539a:	jmp    0x5555555553bf
+   0x55555555539c:	mov    eax,DWORD PTR [rbp-0xbc]
+   0x5555555553a2:	cdqe
+   0x5555555553a4:	movzx  edx,BYTE PTR [rbp+rax*1-0x90]
+   0x5555555553ac:	mov    eax,DWORD PTR [rbp-0xbc]
++x
+   0x5555555553b2:	cdqe
+   0x5555555553b4:	mov    BYTE PTR [rbp+rax*1-0x30],dl
+   0x5555555553b8:	add    DWORD PTR [rbp-0xbc],0x1
+   0x5555555553bf:	cmp    DWORD PTR [rbp-0xbc],0x1a
+   0x5555555553c6:	jle    0x55555555539c
+   0x5555555553c8:	movzx  eax,BYTE PTR [rbp-0x3b]
+   0x5555555553cc:	mov    BYTE PTR [rbp-0x15],al
+   0x5555555553cf:	movzx  eax,BYTE PTR [rbp-0x5a]
+   0x5555555553d3:	mov    BYTE PTR [rbp-0x14],al
+   0x5555555553d6:	movzx  eax,BYTE PTR [rbp-0x5a]
++x
+   0x5555555553da:	mov    BYTE PTR [rbp-0x13],al
+   0x5555555553dd:	movzx  eax,BYTE PTR [rbp-0x70]
+   0x5555555553e1:	mov    BYTE PTR [rbp-0x12],al
+   0x5555555553e4:	movzx  eax,BYTE PTR [rbp-0x53]
+   0x5555555553e8:	mov    BYTE PTR [rbp-0x11],al
+   0x5555555553eb:	movzx  eax,BYTE PTR [rbp-0x3b]
+   0x5555555553ef:	mov    BYTE PTR [rbp-0x10],al
+   0x5555555553f2:	movzx  eax,BYTE PTR [rbp-0x62]
+   0x5555555553f6:	mov    BYTE PTR [rbp-0xf],al
+   0x5555555553f9:	movzx  eax,BYTE PTR [rbp-0x58]
++x
+   0x5555555553fd:	mov    BYTE PTR [rbp-0xe],al
+   0x555555555400:	movzx  eax,BYTE PTR [rbp-0xb2]
+   0x555555555407:	mov    BYTE PTR [rbp-0xd],al
+   0x55555555540a:	mov    rax,QWORD PTR [rbp-0xd8]
+   0x555555555411:	mov    rdi,rax
+   0x555555555414:	call   0x5555555550e0 <strlen@plt>
+   0x555555555419:	cmp    rax,0x24
+   0x55555555541d:	je     0x555555555426
+   0x55555555541f:	mov    eax,0x0
+   0x555555555424:	jmp    0x555555555475
++b *0x5555555553c8
+Breakpoint 4 at 0x5555555553c8
++c
+Continuing.
+
+Breakpoint 4, 0x00005555555553c8 in ?? ()
++si
+0x00005555555553cc in ?? ()
++si
+0x00005555555553cf in ?? ()
++si
+0x00005555555553d3 in ?? ()
++si
+0x00005555555553d6 in ?? ()
++si
+0x00005555555553da in ?? ()
++x/10i $pc
+=> 0x5555555553da:	mov    BYTE PTR [rbp-0x13],al
+   0x5555555553dd:	movzx  eax,BYTE PTR [rbp-0x70]
+   0x5555555553e1:	mov    BYTE PTR [rbp-0x12],al
+   0x5555555553e4:	movzx  eax,BYTE PTR [rbp-0x53]
+   0x5555555553e8:	mov    BYTE PTR [rbp-0x11],al
+   0x5555555553eb:	movzx  eax,BYTE PTR [rbp-0x3b]
+   0x5555555553ef:	mov    BYTE PTR [rbp-0x10],al
+   0x5555555553f2:	movzx  eax,BYTE PTR [rbp-0x62]
+   0x5555555553f6:	mov    BYTE PTR [rbp-0xf],al
+   0x5555555553f9:	movzx  eax,BYTE PTR [rbp-0x58]
++si
+0x00005555555553dd in ?? ()
++si
+0x00005555555553e1 in ?? ()
++si
+0x00005555555553e4 in ?? ()
++si
+0x00005555555553e8 in ?? ()
++si
+0x00005555555553eb in ?? ()
++x/10i $pc
+=> 0x5555555553eb:	movzx  eax,BYTE PTR [rbp-0x3b]
+   0x5555555553ef:	mov    BYTE PTR [rbp-0x10],al
+   0x5555555553f2:	movzx  eax,BYTE PTR [rbp-0x62]
+   0x5555555553f6:	mov    BYTE PTR [rbp-0xf],al
+   0x5555555553f9:	movzx  eax,BYTE PTR [rbp-0x58]
+   0x5555555553fd:	mov    BYTE PTR [rbp-0xe],al
+   0x555555555400:	movzx  eax,BYTE PTR [rbp-0xb2]
+   0x555555555407:	mov    BYTE PTR [rbp-0xd],al
+   0x55555555540a:	mov    rax,QWORD PTR [rbp-0xd8]
+   0x555555555411:	mov    rdi,rax
++si
+0x00005555555553ef in ?? ()
++si
+0x00005555555553f2 in ?? ()
++si
+0x00005555555553f6 in ?? ()
++x/10i $pc
+=> 0x5555555553f6:	mov    BYTE PTR [rbp-0xf],al
+   0x5555555553f9:	movzx  eax,BYTE PTR [rbp-0x58]
+   0x5555555553fd:	mov    BYTE PTR [rbp-0xe],al
+   0x555555555400:	movzx  eax,BYTE PTR [rbp-0xb2]
+   0x555555555407:	mov    BYTE PTR [rbp-0xd],al
+   0x55555555540a:	mov    rax,QWORD PTR [rbp-0xd8]
+   0x555555555411:	mov    rdi,rax
+   0x555555555414:	call   0x5555555550e0 <strlen@plt>
+   0x555555555419:	cmp    rax,0x24
+   0x55555555541d:	je     0x555555555426
++si
+0x00005555555553f9 in ?? ()
++si
+0x00005555555553fd in ?? ()
++si
+0x0000555555555400 in ?? ()
++x/10i $pc
+=> 0x555555555400:	movzx  eax,BYTE PTR [rbp-0xb2]
+   0x555555555407:	mov    BYTE PTR [rbp-0xd],al
+   0x55555555540a:	mov    rax,QWORD PTR [rbp-0xd8]
+   0x555555555411:	mov    rdi,rax
+   0x555555555414:	call   0x5555555550e0 <strlen@plt>
+   0x555555555419:	cmp    rax,0x24
+   0x55555555541d:	je     0x555555555426
+   0x55555555541f:	mov    eax,0x0
+   0x555555555424:	jmp    0x555555555475
+   0x555555555426:	mov    DWORD PTR [rbp-0xb8],0x0
++si
+0x0000555555555407 in ?? ()
++si
+0x000055555555540a in ?? ()
++x/10i $pc
+=> 0x55555555540a:	mov    rax,QWORD PTR [rbp-0xd8]
+   0x555555555411:	mov    rdi,rax
+   0x555555555414:	call   0x5555555550e0 <strlen@plt>
+   0x555555555419:	cmp    rax,0x24
+   0x55555555541d:	je     0x555555555426
+   0x55555555541f:	mov    eax,0x0
+   0x555555555424:	jmp    0x555555555475
+   0x555555555426:	mov    DWORD PTR [rbp-0xb8],0x0
+   0x555555555430:	jmp    0x555555555467
+   0x555555555432:	mov    eax,DWORD PTR [rbp-0xb8]
++x/10gx $rbp-0x100 
+0x7fffffffdad0:	0x00007fffffffdbd0	0x00007fffffffdd58
+0x7fffffffdae0:	0x00007fffffffdbd0	0x0000555555555379
+0x7fffffffdaf0:	0x0000000000000024	0x00007fffffffdbf0
+0x7fffffffdb00:	0x00007fffffffdb30	0x0000001000000020
+0x7fffffffdb10:	0x0000001b00000010	0x007df61f09d92d00
++x
+0x7fffffffdb20:	0x6201e972d5188243	0x8238d4c7bb1c98d0
+0x7fffffffdb30:	0x70c9058edd84b1cb	0xcf9504aaedca5d9e
+0x7fffffffdb40:	0x7b4654436f636970	0x30795f676e317262
+0x7fffffffdb50:	0x6b5f6e77305f7275	0x00005555005f7933
+0x7fffffffdb60:	0x3564383132383334	0x3236313039653237
++x
+0x7fffffffdb70:	0x6262633138393064	0x3238383334643763
+0x7fffffffdb80:	0x6464343831626263	0x3037396335306538
+0x7fffffffdb90:	0x6465616364356539	0x6663353934306161
+0x7fffffffdba0:	0x7b4654436f636970	0x30795f676e317262
+0x7fffffffdbb0:	0x6b5f6e77305f7275	0x38346262615f7933
++x/10gx $rbp-0x38
+0x7fffffffdb98:	0x6663353934306161	0x7b4654436f636970
+0x7fffffffdba8:	0x30795f676e317262	0x6b5f6e77305f7275
+0x7fffffffdbb8:	0x38346262615f7933	0x00007fff7d633661
+0x7fffffffdbc8:	0xbb6af61f09d92d00	0x00007fffffffdc20
+0x7fffffffdbd8:	0x00005555555554e2	0x00007fffffffdd58
++x
+0x7fffffffdbe8:	0x0000000100000000	0x0000000a67616c66
+0x7fffffffdbf8:	0x0000000000000000	0x0000000000000000
+0x7fffffffdc08:	0x0000000000000000	0x0000000000000000
+0x7fffffffdc18:	0xbb6af61f09d92d00	0x00007fffffffdcd0
+0x7fffffffdc28:	0x00007ffff782a601	0x00007fffffffdd10
++x/s $rbp-0x38
+0x7fffffffdb98:	"aa0495cfpicoCTF{br1ng_y0ur_0wn_k3y_abb48a6c}\377\177"

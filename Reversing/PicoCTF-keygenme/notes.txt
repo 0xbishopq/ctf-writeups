@@ -1,0 +1,41 @@
+picoctf/keygenme 
+
+__libc_start_main
+
+main : 
+input location rbp-0x30
+
+
+then pass it into FUN_00101209
+
+FUN_00101209 : 
+
+memcpy first part into local_98 "picoCTF{br1ng_y0ur_0wn_k3y_"
+
+
+then assign it to variable autostack[40]
+
+        001013c6 7e d4           JLE        LAB_0010139c
+        001013c8 0f b6 45 c5     MOVZX      EAX,byte ptr [RBP + local_43]
+        001013cc 88 45 eb        MOV        byte ptr [RBP + flag[27]],AL
+        001013cf 0f b6 45 a6     MOVZX      EAX,byte ptr [RBP + local_62]
+        001013d3 88 45 ec        MOV        byte ptr [RBP + flag[28]],AL
+        001013d6 0f b6 45 a6     MOVZX      EAX,byte ptr [RBP + local_62]
+        001013da 88 45 ed        MOV        byte ptr [RBP + flag[29]],AL
+        001013dd 0f b6 45 90     MOVZX      EAX,byte ptr [RBP + local_78]
+        001013e1 88 45 ee        MOV        byte ptr [RBP + flag[30]],AL
+        001013e4 0f b6 45 ad     MOVZX      EAX,byte ptr [RBP + local_5b]
+        001013e8 88 45 ef        MOV        byte ptr [RBP + flag[31]],AL
+        001013eb 0f b6 45 c5     MOVZX      EAX,byte ptr [RBP + local_43]
+        001013ef 88 45 f0        MOV        byte ptr [RBP + flag[32]],AL
+        001013f2 0f b6 45 9e     MOVZX      EAX,byte ptr [RBP + local_6a]
+        001013f6 88 45 f1        MOV        byte ptr [RBP + flag[33]],AL
+        001013f9 0f b6 45 a8     MOVZX      EAX,byte ptr [RBP + local_60]
+
+autostack postion is rbp-0x38 
+(gdb) x/s $rbp-0x38
+0x7fffffffdb98:	"aa0495cfpicoCTF{br1ng_y0ur_0wn_k3y_abb48a6c}\377\177"
+(gdb) 
+
+
+
